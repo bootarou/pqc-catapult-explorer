@@ -1,67 +1,71 @@
-# Symbol Explorer
+# Symbol Explorer — BNL Post-Quantum fork
 
-[![Build Status](https://travis-ci.com/nemgrouplimited/symbol-explorer.svg?branch=main)](https://travis-ci.com/symbol/symbol-explorer)
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+> ⚠️ **Unofficial, experimental post-quantum (PQC) fork** of Symbol Explorer for browsing a
+> **BNL Post-Quantum Catapult** chain (ML-DSA-44 / ML-KEM-768 / iVRF). It cannot browse public
+> Symbol networks (mainnet/testnet), and the official explorer cannot parse PQC chains.
+> Unaffiliated with official Symbol/NEM.
 
-Symbol Explorer is a read-only web application to browse the content of the blockchain.
-The explorer supports searching for transactions, accounts, namespaces, mosaics, and blocks information on a given network.
+公式 Symbol/NEM とは無関係の、非公式・実験的なポスト量子（PQC）フォークです。
+**BNL Post-Quantum Catapult チェーン専用**のブロックエクスプローラで、
+公開 Symbol ネットワーク（mainnet/testnet）の閲覧はできません。
 
-## Requirements
+ブロックチェーンの内容（トランザクション・アカウント・ネームスペース・モザイク・ブロック）を
+閲覧する読み取り専用の Web アプリケーションです。
 
-- Node.js v20
+## 通常の Symbol Explorer との差分
 
-## Installation
+- **symbol-sdk を PQC 版に差し替え**:
+  [`pqc-catapult-sdk-v2`](https://github.com/bootarou/pqc-catapult-sdk-v2)（`feat-pqc`）を
+  GitHub 依存として使用。ML-DSA-44 の公開鍵（1312 B / hex 2624 桁）と署名（2420 B）、
+  iVRF ブロックモデルを扱えます。
+- **ブロック詳細の VRF 表示を iVRF に変更**: 旧 ECVRF の
+  `proofGamma` / `proofScalar` / `proofVerificationHash` を廃止し、
+  **`iVrfProofLeaf` / `iVrfProofPath`** を表示（全 i18n ロケール更新済み）。
+- `js-sha3` を明示的な依存に追加（旧 SDK 経由の間接依存だったもの）。
 
-1. Clone the project.
+UI・画面構成・操作方法は上流の Symbol Explorer と同一です。
 
-```
-git clone https://github.com/symbol/symbol-explorer.git
-```
+## 動作要件
 
-2. Install the required dependencies.
+- Node.js v20 以上（v22 で検証済み）
+- 接続先: BNL PQC チェーンの REST ゲートウェイ（iVRF ブロックスキーマ対応、
+  例: [`docker-compose.pqc.yml`](https://github.com/bootarou/bnl-catapult-pqc/blob/feat-VRF/votiong/docker-compose.pqc.yml) や
+  [symbol-bootstrap PQC 版](https://github.com/bootarou/symbol-bootstrap/tree/pqc-bootstrap) で起動した `http://localhost:3000`）
 
-```
-cd symbol-explorer
-npm install
-```
+## インストールと起動
 
-3. Run the explorer application.
-
-```
+```bash
+git clone https://github.com/bootarou/pqc-catapult-explorer.git
+cd pqc-catapult-explorer
+npm install          # PQC symbol-sdk は GitHub から自動取得・ビルドされます
 npm run dev
 ```
 
-4. Visit http://localhost:8080/#/ in your browser.
+ブラウザで http://localhost:8080/#/ を開きます。
 
-## Developer notes
+接続先ノードの設定は `src/config/default.json`（ビルド時）または
+`public/config.js` の `window.globalConfig`（デプロイ後の上書き）で行います。
 
-### Architecture
+## 開発メモ
 
-* `/src/config`: Handles the explorer configuration.
-* `/src/infrastructure`: Handles the API / SDK request from Symbol nodes.
-* `/src/store`: Handles the application logic with state management.
-* `/src/views`: Handles the UI of the explorer.
+- `/src/config`: エクスプローラの設定
+- `/src/infrastructure`: Symbol ノードへの API / SDK リクエスト
+- `/src/store`: 状態管理・アプリケーションロジック
+- `/src/views`: UI
 
-## Getting help
+## 関連リポジトリ
 
-Use the following available resources to get help:
+| | |
+|---|---|
+| [bnl-catapult-pqc](https://github.com/bootarou/bnl-catapult-pqc) | 本体モノレポ（catapult-server / REST / SDK v3） |
+| [PQC-SUMMARY.md](https://github.com/bootarou/bnl-catapult-pqc/blob/feat-VRF/votiong/PQC-SUMMARY.md) ([EN](https://github.com/bootarou/bnl-catapult-pqc/blob/feat-VRF/votiong/PQC-SUMMARY.en.md)) | PQC 移行作業の総括資料 |
+| [pqc-catapult-sdk-v2](https://github.com/bootarou/pqc-catapult-sdk-v2) | 本エクスプローラが使用する PQC SDK（symbol-sdk 2.x 系） |
+| [pqc-catapult-sdk-v3](https://github.com/bootarou/pqc-catapult-sdk-v3) | PQC SDK v3（新規アプリにはこちらを推奨） |
+| [symbol-bootstrap](https://github.com/bootarou/symbol-bootstrap)（`pqc-bootstrap`） | PQC ネットワークの生成・運用 CLI |
+| [blockchain-network-launcher](https://github.com/bootarou/blockchain-network-launcher) | **BNL 本体** — カスタムブロックチェーンネットワークの起動・管理ツール |
+| Docker Hub `nftdrive/bnl-catapult-server-pqc` / `bnl-catapult-rest-pqc` | PQC ノード / REST イメージ |
 
-- [Symbol Documentation][docs]
-- Join the community [Discord][discord]
-- If you found a bug, [open a new issue][issues]
+## ライセンス / 派生元
 
-## Contributing
-
-Contributions are welcome and appreciated.
-Check [CONTRIBUTING](CONTRIBUTING.md) for information on how to contribute.
-
-## License
-
-Copyright 2019-present NEM
-
-Licensed under the [Apache License 2.0](LICENSE)
-
-[self]: https://github.com/symbol/symbol-explorer
-[docs]: https://docs.symbolplatform.com
-[issues]: https://github.com/symbol/symbol-explorer/issues
-[discord]: https://discord.gg/NMA9YQ55td
+Apache License 2.0。派生元: [symbol/symbol-explorer](https://github.com/symbol/symbol-explorer)
+（Copyright 2019-present NEM）。上流の CI バッジ・公式リンクは本フォークには該当しないため削除しています。
