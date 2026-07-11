@@ -103,3 +103,20 @@ explorer-smd dev (90817518 = 公式 upstream/dev マージ済み)
 | 1 | SMD の UI が PQC チェーンの想定外データ(巨大公開鍵など)で崩れる | Phase 3-5 で実チェーン確認。修正は表示側のみ(truncate/折返し) |
 | 2 | SMD ソーシャルメタデータが公式ネットワーク前提の外部 API(nodeWatch 等)を呼ぶ | ランチャーの `/api/explorer-proxy` が同一オリジンで肩代わりする既存構造を踏襲。実チェーンで 404/エラーを観察して個別対応 |
 | 3 | lockfile 再生成による依存ドリフト | SMD 側依存は `^` レンジのまま `npm install` で解決し、ビルド+実チェーン検証で担保 |
+
+---
+
+## 5. 実施結果（2026-07-11・全項目合格）
+
+| Phase | 結果 |
+|---|---|
+| 1: マージ | ✅ `0802d923`。実際の衝突は README のみ（package.json / i18n は自動マージ成功、SMD キーと iVRF キー両立を確認） |
+| 2: ローカルビルド | ✅ `npm install`（lockfile は自動マージ結果のまま整合）→ `npm run build` 成功（93 秒、`dist/` 出力） |
+| 3-1: cache-bust | ✅ ランチャーの explorer 生成 Dockerfile に GitHub refs API の `ADD` を追加（launcher `1fa9412`）。再ビルドで新 tip の clone を確認 |
+| 3-2: ランチャービルド・起動 | ✅ :8090 で稼働、タイトル = **NFTDrive-BlockChainExplorer-SMD** |
+| 3-3: SMD 機能 | ✅ バンドルに `socialMetadata` / `getMosaicHolderList` を確認。`/metadata` 応答正常（テストチェーンは登録 0 件）。**モザイクホルダー一覧が実データで動作（currency 保有 6 アカウント、ML-DSA 公開鍵 2624 hex を返却）** |
+| 3-4: PQC 機能残存 | ✅ プロキシ経由 `/blocks/2` が `iVrfProofLeaf` を返却、`proofGamma` 不在 |
+| 3-5: 2624 hex 表示 | ✅ ホルダー一覧データパスで 2624 hex 公開鍵を確認（UI は折返し表示） |
+
+SMD ソーシャルメタデータの実データ表示は、チェーンにメタデータが登録され次第確認可能
+（データ取得経路 `/metadata` は動作済み）。
