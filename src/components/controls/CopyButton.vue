@@ -57,5 +57,6 @@ export default{
     opacity: 0.5;
     cursor: pointer;
     padding: 0 2px;
+    filter: brightness(0);
 }
 </style>

@@ -71,7 +71,7 @@ export default {
 			return `border-radius: 3px;
                 color: #fff;
                 background-color: #5200c6;
-                font-family: Noto Sans;
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
                 font-weight: bold;
                 font-size: 13px;
                 display: flex;
@@ -90,7 +90,7 @@ export default {
                 border-color: #5200c6;
                 color: #5200c6;
                 background-color: #fff;
-                font-family: Noto Sans;
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
                 font-weight: bold;
                 font-size: 13px;
                 display: flex;

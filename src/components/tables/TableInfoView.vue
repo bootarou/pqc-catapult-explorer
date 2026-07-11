@@ -7,7 +7,7 @@
 						{{getKeyName(itemKey)}}
 					</td>
 					<td
-						class="'max-item-width table-cell break-all"
+						class="max-item-width table-cell table-value-cell break-all"
 						:title="getKeyName(itemKey) + (typeof item !== 'string' ? '' : ': ' +  item)"
 					>
 						<ArrayField v-if="isArrayField(itemKey)" :itemKey="itemKey" :value="item" />
@@ -105,5 +105,21 @@ export default {
     .table-left-header {
         font-weight: bold;
     }
+}
+</style>
+
+<style lang="scss">
+// Ensure dark mode styles for table title items are applied
+[data-theme="darkMode"] .table-title-item {
+    background-color: #2d3748 !important;
+    border-right: 1px solid #4a5568 !important;
+    color: #e2e8f0 !important;
+}
+
+// Dark mode styles for table value cells
+[data-theme="darkMode"] .table-value-cell {
+    background-color: #374151 !important;
+    color: #cbd5e0 !important;
+    border-left: 1px solid #4a5568 !important;
 }
 </style>

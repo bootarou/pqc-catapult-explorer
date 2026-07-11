@@ -142,6 +142,7 @@ export default {
     margin-left: 5px;
     opacity: 0.5;
     cursor: pointer;
+    filter: brightness(0);
 }
 
 .body-wrapper {

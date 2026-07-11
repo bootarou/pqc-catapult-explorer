@@ -22,6 +22,7 @@ import chain from './chain';
 import mosaic from './mosaic';
 import namespace from './namespace';
 import node from './node';
+import socialMetadata from './socialMetadata';
 import statistic from './statistic';
 import transaction from './transaction';
 import ui from './ui';
@@ -45,6 +46,7 @@ export default new Vuex.Store({
 		mosaic,
 		namespace,
 		node,
+		socialMetadata,
 		statistic
 	},
 	state: {

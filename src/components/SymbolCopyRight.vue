@@ -20,7 +20,7 @@
 	<div class="row">
 		<div class="col-md-12 d-flex justify-content-center">
 			<div class="ftr_btm">
-				<span> © Symbol Contributors {{ currentYear }}</span>
+				<span> © NFTDrive {{ currentYear }}</span>
 				<span>|</span>
 				<span>v {{ appVersion }}</span>
 			</div>
@@ -47,7 +47,7 @@ span {
 }
 
 span > a {
-    color: #fff;
+    color: var(--clickable-text);
 }
 
 .ftr_btm {
@@ -55,7 +55,7 @@ span > a {
     max-width: $footer-max-width;
     text-align: center;
     font-size: 12px;
-    color: #fff;
+    color: var(--clickable-text);
     position: relative;
     padding: 10px 0;
     margin-top: 22px;

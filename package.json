@@ -2,6 +2,7 @@
   "name": "symbol-explorer",
   "version": "1.4.0",
   "description": "Symbol Block and Network Explorer",
+  "homepage": "https://bootarou.github.io/explorer-smd/",
   "scripts": {
     "build": "vue-cli-service build",
     "test:e2e": "vue-cli-service test:e2e --headless",

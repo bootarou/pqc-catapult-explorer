@@ -55,6 +55,7 @@ import TransactionGraphicWidget from '@/components/widgets/TransactionGraphicWid
 import AccountBalanceWidget from '@/components/widgets/AccountBalanceWidget.vue';
 import NodesMapWidget from '@/components/widgets/NodesMapWidget.vue';
 import NodeStatsWidget from '@/components/widgets/NodeStatsWidget.vue';
+import SocialMetadataWidget from '@/components/widgets/SocialMetadataWidget.vue';
 
 export default {
 	components: {
@@ -66,7 +67,8 @@ export default {
 		TransactionGraphicWidget,
 		AccountBalanceWidget,
 		NodesMapWidget,
-		NodeStatsWidget
+		NodeStatsWidget,
+		SocialMetadataWidget
 	},
 
 	props: {

@@ -12,7 +12,7 @@
 	"footer": {
 		"link": [
 			{
-				"href": "https://github.com/symbol",
+				"href": "https://github.com/bootarou/explorer-smd",
 				"text": "Github",
 				"icon": "IconGithub"
 			},
@@ -22,7 +22,7 @@
 				"icon": "IconDiscord"
 			},
 			{
-				"href": "https://twitter.com/NEMofficial",
+				"href": "https://x.com/nftdrive_jp",
 				"text": "Twitter",
 				"icon": "IconTwitter"
 			},

@@ -1,18 +1,30 @@
-# Symbol Explorer — BNL Post-Quantum fork
+# NFTDrive Symbol Explorer with SMD — BNL Post-Quantum fork
 
-> ⚠️ **Unofficial, experimental post-quantum (PQC) fork** of Symbol Explorer for browsing a
-> **BNL Post-Quantum Catapult** chain (ML-DSA-44 / ML-KEM-768 / iVRF). It cannot browse public
-> Symbol networks (mainnet/testnet), and the official explorer cannot parse PQC chains.
-> Unaffiliated with official Symbol/NEM.
+> ⚠️ **Unofficial, experimental post-quantum (PQC) fork** of the NFTDrive Symbol Explorer (SMD
+> edition) for browsing a **BNL Post-Quantum Catapult** chain (ML-DSA-44 / ML-KEM-768 / iVRF).
+> It cannot browse public Symbol networks (mainnet/testnet), and the official explorer cannot
+> parse PQC chains. Unaffiliated with official Symbol/NEM.
 
 公式 Symbol/NEM とは無関係の、非公式・実験的なポスト量子（PQC）フォークです。
 **BNL Post-Quantum Catapult チェーン専用**のブロックエクスプローラで、
 公開 Symbol ネットワーク（mainnet/testnet）の閲覧はできません。
 
 ブロックチェーンの内容（トランザクション・アカウント・ネームスペース・モザイク・ブロック）を
-閲覧する読み取り専用の Web アプリケーションです。
+閲覧する読み取り専用の Web アプリケーションです。NFTDrive 版の **SMD（Social MetaData）機能**を含みます。
 
-## 通常の Symbol Explorer との差分
+## SMD（Social MetaData）機能
+
+- チェーン上に登録されたソーシャルメタデータの一覧・検索
+- アイコン・URL・ネームスペース情報付きのソーシャルプロファイル表示
+- 名前 / ネームスペース / URL / 登録順のソート、日英対応
+- アカウント・ネームスペースページへの直接ナビゲーション
+
+**モザイク詳細ページの拡張:**
+
+- ホルダー一覧（残高・divisibility 整形、10 件ページング）
+- モザイク別トランザクション履歴（`transferMosaicId` フィルタ、10 件ページング）
+
+## 通常の Symbol Explorer（SMD 版）との差分 — PQC 対応
 
 - **symbol-sdk を PQC 版に差し替え**:
   [`pqc-catapult-sdk-v2`](https://github.com/bootarou/pqc-catapult-sdk-v2)（`feat-pqc`）を
@@ -23,7 +35,7 @@
   **`iVrfProofLeaf` / `iVrfProofPath`** を表示（全 i18n ロケール更新済み）。
 - `js-sha3` を明示的な依存に追加（旧 SDK 経由の間接依存だったもの）。
 
-UI・画面構成・操作方法は上流の Symbol Explorer と同一です。
+UI・画面構成・操作方法は SMD 版 Symbol Explorer と同一です。
 
 ## 動作要件
 
@@ -49,9 +61,10 @@ npm run dev
 ## 開発メモ
 
 - `/src/config`: エクスプローラの設定
-- `/src/infrastructure`: Symbol ノードへの API / SDK リクエスト
-- `/src/store`: 状態管理・アプリケーションロジック
+- `/src/infrastructure`: Symbol ノードへの API / SDK リクエスト（`MetadataService` = SMD、`MosaicService` = ホルダー/Tx 履歴）
+- `/src/store`: 状態管理・アプリケーションロジック（`socialMetadata` = SMD）
 - `/src/views`: UI
+- `/src/components/widgets`: SMD（Social MetaData）ウィジェット等
 
 ## 関連リポジトリ
 
@@ -67,5 +80,8 @@ npm run dev
 
 ## ライセンス / 派生元
 
-Apache License 2.0。派生元: [symbol/symbol-explorer](https://github.com/symbol/symbol-explorer)
-（Copyright 2019-present NEM）。上流の CI バッジ・公式リンクは本フォークには該当しないため削除しています。
+Apache License 2.0。
+Copyright 2019-present NEM ／ Copyright 2024-present NFTDrive。
+派生元: [symbol/symbol-explorer](https://github.com/symbol/symbol-explorer) → NFTDrive 版
+[explorer-smd](https://github.com/bootarou/explorer-smd)（SMD 機能）→ 本 PQC フォーク。
+上流の CI バッジ・公式リンクは本フォークには該当しないため削除しています。

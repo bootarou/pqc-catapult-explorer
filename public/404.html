@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>Symbol Block Explorer</title>
+	<link rel="manifest" href="/explorer-smd/manifest.json">
+	<link rel="apple-touch-icon" sizes="180x180" href="/explorer-smd/icons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/explorer-smd/icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/explorer-smd/icons/favicon-16x16.png">
+	<script type="text/javascript">
+		// Single Page Apps for GitHub Pages
+		// https://github.com/rafgraph/spa-github-pages
+		var pathSegmentsToKeep = 1;
+		var l = window.location;
+		var redirect = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+			l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?' +
+			(l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+			(l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+			l.hash).replace(/^&/, 'p=');
+		l.replace(redirect);
+	</script>
+</head>
+<body>
+</body>
+</html>

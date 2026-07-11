@@ -62,7 +62,8 @@ export default {
         font-weight: 500;
         color: var(--card-title-text);
         text-transform: uppercase;
-        font-family: "Carbon", sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+        font-weight: 700;
     }
 
     .ex-card-body {

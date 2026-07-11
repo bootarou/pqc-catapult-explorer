@@ -5,6 +5,7 @@ export default [
 	require('./namespace-list'),
 	require('./node-list'),
 	require('./transaction-list'),
+	require('./smd-list'),
 
 	require('./account-detail'),
 	require('./block-detail'),

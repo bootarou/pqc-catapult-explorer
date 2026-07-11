@@ -1,0 +1,24 @@
+{
+    "path": "/smd",
+    "name": "smd",
+    "meta": {
+        "group": "list-page",
+        "keepAliveGoTo": []
+    },
+    "props": {
+        "layout": "flex",
+        "storeNamespaces": [
+            "socialMetadata"
+        ],
+        "initActions": [
+            "socialMetadata/fetchSocialMetadata"
+        ],
+        "schema": [
+            {
+                "layoutOptions": "full-width",
+                "type": "SocialMetadataWidget",
+                "title": "socialMetadata"
+            }
+        ]
+    }
+}

@@ -147,17 +147,23 @@ export default {
         justify-content: center;
         align-items: center;
         filter: var(--icon-invert);
+        background-color: #000000;
+        border-radius: 50%;
+		margin-right: 15px;
+		opacity: 1;
 
         .icon-small {
             height: 12px;
             width: 12px;
             margin-right: 4px;
+            padding: 4px;
         }
 
         .icon-medium {
             height: 25px;
             width: 25px;
             margin: 5px;
+            padding: 5px;
         }
     }
 

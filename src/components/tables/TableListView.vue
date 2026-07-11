@@ -356,3 +356,59 @@ export default {
     }
 }
 </style>
+
+<style lang="scss">
+// Dark mode styles for TableListView
+[data-theme="darkMode"] .table-title-item {
+    background-color: #2d3748 !important;
+    border-right: 1px solid #4a5568 !important;
+    color: #e2e8f0 !important;
+}
+
+[data-theme="darkMode"] .table-value-cell {
+    background-color: #374151 !important;
+    color: #cbd5e0 !important;
+}
+
+// Dark mode table wrapper
+[data-theme="darkMode"] .table-wrapper {
+    background-color: var(--card-bg) !important;
+}
+
+// Dark mode table striped rows for list view
+[data-theme="darkMode"] .ex-table-striped tbody tr:nth-child(odd) td.table-value-cell {
+    background-color: #374151 !important;
+}
+
+[data-theme="darkMode"] .ex-table-striped tbody tr:nth-child(even) td.table-value-cell {
+    background-color: #4a5568 !important;
+}
+</style>
+
+<style lang="scss">
+// Dark mode styles for TableListView
+[data-theme="darkMode"] .table-title-item {
+    background-color: #2d3748 !important;
+    border-right: 1px solid #4a5568 !important;
+    color: #e2e8f0 !important;
+}
+
+[data-theme="darkMode"] .table-value-cell {
+    background-color: #374151 !important;
+    color: #cbd5e0 !important;
+}
+
+// Dark mode table wrapper
+[data-theme="darkMode"] .table-wrapper {
+    background-color: var(--card-bg) !important;
+}
+
+// Dark mode table striped rows for list view
+[data-theme="darkMode"] .ex-table-striped tbody tr:nth-child(odd) td.table-value-cell {
+    background-color: #374151 !important;
+}
+
+[data-theme="darkMode"] .ex-table-striped tbody tr:nth-child(even) td.table-value-cell {
+    background-color: #4a5568 !important;
+}
+</style>

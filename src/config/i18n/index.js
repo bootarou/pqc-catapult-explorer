@@ -23,7 +23,11 @@ const getUserLanguage = () => {
 const setCurrentLanguage = lang => {
 	if (null != lang && null != languages[lang]) {
 		localStorage.setItem('userLanguage', lang);
-		location.reload();
+		// GitHub Pages対応: ベースパスを保持してリロード
+		const basePath = process.env.NODE_ENV === 'production' ? '/explorer-smd/' : '/';
+		const currentPath = window.location.pathname.replace(basePath, '');
+		const newUrl = basePath + currentPath + window.location.search + window.location.hash;
+		window.location.href = newUrl;
 	} else { throw Error('I18n: Cannot set language \'' + lang + '\''); }
 };
 

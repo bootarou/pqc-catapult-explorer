@@ -23,6 +23,7 @@
 					<b-col md="3" class="header-right">
 						<SearchBox class='search-box' />
 						<LanguageSelector class="d-none d-md-block language-selector"/>
+						<ThemeToggle class="d-none d-md-block theme-selector"/>
 					</b-col>
 				</b-row>
 			</b-container>
@@ -33,11 +34,13 @@
 <script>
 import SearchBox from '@/components/controls/SearchBox.vue';
 import LanguageSelector from '@/components/controls/LanguageSelector.vue';
+import ThemeToggle from '@/components/ThemeToggle.vue';
 
 export default {
 	components: {
 		SearchBox,
-		LanguageSelector
+		LanguageSelector,
+		ThemeToggle
 	},
 
 	data () {
@@ -64,12 +67,14 @@ export default {
 .header-gradinet {
     background-size: 100% auto;
     position: relative;
-    background-color: #000;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
 
 .header-gradinet::before {
     content: '';
-    background-image: var(--header-bg-img);
+    /* background-image: var(--header-bg-img); */
     position: absolute;
     z-index: 0;
     top: 0;
@@ -134,7 +139,7 @@ export default {
         margin: 5px 0;
 
         .header-title {
-            color: #fff;
+            color: #1f2937;
             font-weight: 500;
             text-transform: capitalize;
             font-size: 35px;
@@ -157,6 +162,11 @@ export default {
         display: flex;
         flex-direction: column;
         margin: 5px 0;
+
+        .language-selector,
+        .theme-selector {
+            margin-bottom: 5px;
+        }
     }
 }
 </style>

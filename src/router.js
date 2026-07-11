@@ -33,6 +33,7 @@ const pagesRoutes = pages.map(page => ({
 
 const routerConfig = {
 	mode: 'history',
+	base: process.env.NODE_ENV === 'production' ? '/explorer-smd/' : '/',
 	scrollBehavior () {
 		return { x: 0, y: 0 };
 	},

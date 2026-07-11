@@ -1,15 +1,5 @@
-@font-face {
-    font-family: "protipo";
-    src: url("https://use.typekit.net/af/f928b5/00000000000000007735b722/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"), url("https://use.typekit.net/af/f928b5/00000000000000007735b722/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"), url("https://use.typekit.net/af/f928b5/00000000000000007735b722/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
-    font-display: auto;
-    font-style: normal;
-    font-weight: 400;
-}
-
-@font-face {
-    font-family: Carbon;
-    src: url("./fonts/Carbon-Bold.otf") format("opentype");
-}
+// Modern system fonts for better compatibility and performance
+// Using standard web-safe fonts instead of custom fonts
 
 $primary: $primary-color;
 $secondary: $secondary-color;
@@ -60,43 +50,45 @@ $theme-colors: map-merge(
     --testnet-badge-title: #{$dark-mode-text-title-color};
     --header-bg-img: url(../styles/img/mainnet-header.png);
     --footer-bg-img: url(../styles/img/mainnet-footer.png);
-    --main-bg-color: #{$white-color};
-    --main-grid-bg: #{$white-color};
-    --navigation-bg: #{$black-color};
+    --main-bg-color: #f8fafc;
+    --main-grid-bg: #f1f5f9;
+    --navigation-bg: #ffffff;
     --theme-switch-bg: #{$dark-mode-card-bg-color};
-    --text-color: #{$grey-color};
-    --clickable-text: #{$dark-mode-button-text-color};
+    --text-color: #334155;
+    --clickable-text: #{$primary-color};
     --card-bg: #{$white-color};
-    --card-border: #{$primary-color};
-    --sub-card-border: #{$primary-color};
-    --sub-card-bg: #{$transparent};
-    --card-title-text: #{$accent-color};
-    --table-content-text: #{$black-color};
+    --card-border: #e2e8f0;
+    --sub-card-border: #cbd5e1;
+    --sub-card-bg: #{$white-color};
+    --card-title-text: #{$primary-color};
+    --table-content-text: #475569;
     --balance-green-text: #{$green-color};
-    --balance-widget-bg: #{$transparent};
+    --balance-widget-bg: #{$white-color};
     --mosaic-filed-bg: #{$primary-color};
-    --loading-bg: #{$transparent};
-    --icon-invert: invert(1);
+    --loading-bg: #f1f5f9;
+    --icon-invert: invert(0);
 }
 
 // Variables for dark mode
 [data-theme="darkMode"] {
     --header-bg-img: url(../styles/img/mainnet-header.png);
     --footer-bg-img: url(../styles/img/mainnet-footer.png);
+    // Business-friendly dark mode colors
     --main-bg-color: #{$dark-mode-main-bg};
     --main-grid-bg: #{$dark-mode-grid-bg};
+    --navigation-bg: #2d3748;
     --text-color: #{$dark-mode-text-color};
     --clickable-text: #{$dark-mode-button-text-color};
     --card-bg: #{$dark-mode-card-bg-color};
-    --card-border: #{$transparent};
-    --sub-card-border: #{$dark-mode-card-border-color};
-    --sub-card-bg: #{$black-color};
-    --card-title-text: #{$dark-mode-text-title-color};
-    --table-content-text: #{$violet-color};
+    --card-border: #4a5568;
+    --sub-card-border: #4a5568;
+    --sub-card-bg: #2d3748;
+    --card-title-text: #e2e8f0;
+    --table-content-text: #cbd5e0;
     --balance-green-text: #{$dark-mode-green-text-color};
-    --balance-widget-bg: #{$black-color};
+    --balance-widget-bg: #2d3748;
     --mosaic-filed-bg: #{$mosaic-filed};
-    --loading-bg: #{$dark-grey-color};
+    --loading-bg: #4a5568;
     --icon-invert: invert(0);
 }
 
@@ -138,10 +130,22 @@ $theme-colors: map-merge(
 }
 
 body {
-    font-family: 'protipo', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
     background-color: var(--main-bg-color);
-    background-image: linear-gradient(var(--main-grid-bg) 0.1rem, transparent 0.1rem), linear-gradient(90deg, var(--main-grid-bg) 0.1rem, transparent 0.1rem);
-    background-size: 25px 25px;
+}
+
+// Ensure all text elements use consistent fonts
+* {
+    font-family: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 600;
+}
+
+button, input, optgroup, select, textarea {
+    font-family: inherit;
 }
 
 a {
@@ -162,4 +166,78 @@ a {
     background-color: var(--sub-card-bg);
     color: var(--text-color);
     border-color: var(--sub-card-border);
+}
+
+// Global table styling improvements
+.table {
+    // テーブル全体のボーダーを追加
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    overflow: hidden;
+    
+    // テーブルの基本スタイル
+    margin-bottom: 0;
+    background-color: #ffffff;
+}
+
+// Dark mode table styling
+[data-theme="darkMode"] .table {
+    border: 1px solid #4a5568;
+    background-color: var(--card-bg);
+    color: var(--table-content-text);
+}
+
+// カードテーブルの背景を統一
+.card .table-wrapper,
+.card .table {
+    background-color: transparent;
+}
+
+// テーブル内のフォームコントロールを調整
+.table .form-control {
+    border: 1px solid #d1d5db;
+    background-color: #ffffff;
+    color: #374151;
+}
+
+// Dark mode form controls in tables
+[data-theme="darkMode"] .table .form-control {
+    border: 1px solid #4a5568;
+    background-color: var(--sub-card-bg);
+    color: var(--table-content-text);
+}
+
+// Dark mode card tables
+[data-theme="darkMode"] .card .table-wrapper,
+[data-theme="darkMode"] .card .table {
+    background-color: var(--card-bg);
+}
+
+// Dark mode table cells
+[data-theme="darkMode"] .table td,
+[data-theme="darkMode"] .table th {
+    border-color: #4a5568;
+    color: var(--table-content-text);
+}
+
+// Global dark mode table value cells
+[data-theme="darkMode"] .table-value-cell {
+    background-color: #374151 !important;
+    color: #cbd5e0 !important;
+}
+
+// Global dark mode table title items
+[data-theme="darkMode"] .table-title-item {
+    background-color: #2d3748 !important;
+    border-right: 1px solid #4a5568 !important;
+    color: #e2e8f0 !important;
+}
+
+// Dark mode striped table rows
+[data-theme="darkMode"] .ex-table-striped tbody tr:nth-child(odd) td {
+    background-color: #374151 !important;
+}
+
+[data-theme="darkMode"] .ex-table-striped tbody tr:nth-child(even) td {
+    background-color: #4a5568 !important;
 }

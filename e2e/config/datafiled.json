@@ -1,3 +1,0 @@
-{
-    "transactionInfoFields": ["Block Height", "Size (bytes)", "Transaction Hash", "Date", "Deadline", "Fee", "Signature", "Signer", "Status", "Confirmation"]
-}

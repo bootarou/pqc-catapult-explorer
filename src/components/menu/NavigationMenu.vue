@@ -17,22 +17,16 @@
 				<img v-if="iconUrl(item.icon)" width="15px" height="15px" :src="iconUrl(item.icon)" class="menu-icon" alt="menu icon"/>
 				<span>{{getNameByKey(item.text)}}</span>
 			</router-link>
-			<ThemeToggle />
 		</div>
 	</header>
 </template>
 
 <script>
 import { pageMenu } from '../../config/';
-import ThemeToggle from '../ThemeToggle.vue';
 import MenuComponent from './MenuComponent.vue';
 
 export default {
 	extends: MenuComponent,
-
-	components: {
-		ThemeToggle
-	},
 
 	mounted () {
 		let { DesktopMenu } = this.$refs;
@@ -68,6 +62,14 @@ export default {
 <style lang="scss" scoped>
 .header-gradinet {
     background: var(--navigation-bg);
+    border-bottom: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="darkMode"] .header-gradinet {
+    background: var(--navigation-bg);
+    border-bottom: 1px solid #4a5568;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
 }
 
 .ex-menu {
@@ -75,7 +77,8 @@ export default {
     position: relative;
 
     .width-limiter {
-        display: block;
+        display: flex;
+        align-items: center;
         width: 100%;
         max-width: $navmenu-max-width;
         margin-left: auto;
@@ -88,30 +91,82 @@ export default {
     }
 
     .ex-menu-item {
-        padding: 0 20px;
-        color: var(--light);
+        padding: 8px 20px;
+        color: #374151;
         text-decoration: none;
         letter-spacing: 1px;
         position: relative;
-        transition: all 0.1s ease-in-out;
+        transition: all 0.2s ease-in-out;
         width: auto;
         display: inline-block;
         font-size: 13px;
-        line-height: 40px;
+        line-height: 24px;
         font-weight: 600;
-        opacity: 0.8;
+        opacity: 1;
         text-transform: uppercase;
+        background-color: rgba(107, 114, 128, 0.2);
+        border: 1px solid rgba(107, 114, 128, 0.3);
+        border-radius: 6px;
+        margin: 0 4px;
+
+        &:hover {
+            background-color: rgba(107, 114, 128, 0.35);
+            border-color: rgba(107, 114, 128, 0.5);
+            opacity: 1;
+            transform: translateY(-1px);
+        }
 
         .menu-icon {
-            margin-right: 10px;
+            margin-right: 8px;
+            opacity: 1;
+            width: 32px;
+            height: 32px;
+            filter: brightness(0.7);
         }
     }
 
     .ex-menu-item.active {
-        color: var(--white);
+        color: #{$primary-color};
         font-weight: 600;
         opacity: 1;
-        background-color: #250832;
+        background-color: rgba(37, 99, 235, 0.25);
+        border-color: rgba(37, 99, 235, 0.4);
+        
+        .menu-icon {
+            opacity: 1;
+            width: 32px;
+            height: 32px;
+            filter: none;
+        }
+    }
+
+    // Dark mode styles
+    [data-theme="darkMode"] & {
+        .ex-menu-item {
+            color: #cbd5e0;
+            background-color: rgba(74, 85, 104, 0.3);
+            border: 1px solid rgba(74, 85, 104, 0.4);
+
+            &:hover {
+                background-color: rgba(74, 85, 104, 0.5);
+                border-color: rgba(74, 85, 104, 0.6);
+                color: #e2e8f0;
+            }
+
+            .menu-icon {
+                filter: brightness(1.2);
+            }
+        }
+
+        .ex-menu-item.active {
+            color: #60a5fa;
+            background-color: rgba(96, 165, 250, 0.25);
+            border-color: rgba(96, 165, 250, 0.4);
+            
+            .menu-icon {
+                filter: none;
+            }
+        }
     }
 
     .ex-menu-item::before {
@@ -121,13 +176,13 @@ export default {
         left: 0;
         width: 100%;
         height: 4px;
-        background: var(--light);
+        background: #{$primary-color};
         transition: all 0.2s ease-in-out;
         bottom: 0;
     }
 
     .ex-menu-item.active::before {
-        background-color: #7413a4;
+        background-color: #{$primary-color};
         opacity: 1;
     }
 }

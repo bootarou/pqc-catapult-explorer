@@ -310,6 +310,8 @@ export default {
         outline: none;
         font-size: 16px;
         letter-spacing: unset;
+        background-color: #f1f5f9;
+        border-right: 1px solid #e2e8f0;
     }
 
     .table-titles-ver {
@@ -317,16 +319,108 @@ export default {
         max-width: 200px;
     }
 
-    .ex-table-striped tbody tr:hover {
-        background-color: $table-hover-color;
+    .ex-table-striped {
+        color: #374151;
+        
+        tbody tr:hover {
+            background-color: $table-hover-color;
+        }
+
+        tbody tr:nth-child(odd) td {
+            background-color: $table-striped-color-first;
+        }
+
+        tbody tr:nth-child(even) td {
+            background-color: $table-striped-color-second;
+        }
+
+        // アイコンの視認性を改善
+        .transaction-type .icon img {
+            opacity: 0.8;
+        }
+
+        // リンクの色を落ち着いたブルーに
+        a {
+            color: #2563eb;
+            text-decoration: none;
+            
+            &:hover {
+                color: #1d4ed8;
+                text-decoration: underline;
+            }
+        }
+
+        // ヘッダーのスタイルを改善
+        thead th {
+            background-color: #f8fafc;
+            border-bottom: 2px solid #e2e8f0;
+            color: #1f2937;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
     }
 
-    .ex-table-striped tbody tr:nth-child(odd) td {
-        background-color: $table-striped-color-first;
-    }
+    // Dark mode styles for striped tables
+    [data-theme="darkMode"] .ex-table-striped {
+        color: var(--table-content-text);
+        
+        tbody tr:hover {
+            background-color: $dark-table-hover-color;
+        }
 
-    .ex-table-striped tbody tr:nth-child(even) td {
-        background-color: $table-striped-color-second;
+        tbody tr:nth-child(odd) td {
+            background-color: $dark-table-striped-color-first;
+        }
+
+        tbody tr:nth-child(even) td {
+            background-color: $dark-table-striped-color-second;
+        }
+
+        // ダークモードでのテーブル値セルのスタイル統一
+        tbody tr:nth-child(odd) td.table-value-cell {
+            background-color: #374151;
+        }
+
+        tbody tr:nth-child(even) td.table-value-cell {
+            background-color: #4a5568;
+        }
+
+        // リンクの色をダークモード用に調整
+        a {
+            color: #60a5fa;
+            
+            &:hover {
+                color: #93c5fd;
+                text-decoration: underline;
+            }
+        }
+
+        // ヘッダーのダークモードスタイル
+        thead th {
+            background-color: #2d3748;
+            border-bottom: 2px solid #4a5568;
+            color: #e2e8f0;
+        }
+        
+        // アイコンの視認性を改善
+        .transaction-type .icon img {
+            opacity: 1;
+            filter: brightness(1.2);
+        }
+
+        // セルのパディングとボーダーを調整
+        td {
+            border-top: 1px solid #f1f5f9;
+            padding: 12px 16px;
+            vertical-align: middle;
+        }
+        
+        th {
+            border: none;
+            padding: 16px;
+        }
     }
 
     .table-head-cell {
@@ -385,4 +479,15 @@ export default {
         word-break: break-all;
     }
 }
+
+// Dark mode specific styles for table title items - placed outside scoped styles
+</style>
+
+<style lang="scss">
+[data-theme="darkMode"] .table-title-item {
+    background-color: #2d3748 !important;
+    border-right: 1px solid #4a5568 !important;
+    color: #e2e8f0 !important;
+}
+</style>
 </style>

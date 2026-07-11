@@ -34,6 +34,40 @@
                 ]
             },
             {
+				"layoutOptions": "full-width",
+				"type": "CardTable",
+				"title": "mosaicHoldersTitle",
+				"managerGetter": "mosaic/holders",
+				"pagination": "server",
+				"hideOnError": true,
+				"fields": [
+					"address",
+					"balance",
+					"importance",
+					"accountAliasNames",
+					"accountLabel"
+				]
+			},
+			{
+				"layoutOptions": "full-width",
+				"type": "CardTable",
+				"title": "mosaicTransactionsTitle",
+				"managerGetter": "mosaic/transactions",
+				"pagination": "server",
+				"hasFilter": true,
+				"hideOnError": true,
+				"fields": [
+					"transactionHash",
+					"transactionType",
+					"height",
+					"age",
+					"signer",
+					"recipient",
+					"extendGraphicValue",
+					"effectiveFee"
+				]
+			},
+            {
                 "layoutOptions": "adaptive",
                 "type": "CardTable",
                 "title": "mosaicRestrictionListTitle",

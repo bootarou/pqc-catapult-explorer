@@ -87,9 +87,13 @@ export default {
 }
 
 .footer {
-    padding: 50px 0 0;
+    padding: 40px 0;
     width: 100%;
     position: relative;
+    background-color: var(--card-bg);
+    border-top: 1px solid var(--card-border);
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
 
     .footer-row {
         .footer-description {
@@ -98,19 +102,7 @@ export default {
     }
 }
 
-.footer::before {
-    content: '';
-    background-image: var(--footer-bg-img);
-    position: absolute;
-    z-index: 0;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-}
+// Footer background removed for clean corporate look
 
 .social-icon {
     list-style: none;
@@ -119,21 +111,43 @@ export default {
     display: flex;
     padding: 0;
     margin: 0 -15px;
+    z-index: 2;
+    position: relative;
 
     .social-icon-item {
-        margin: 5px 10px;
+        margin: 8px 15px;
         text-transform: uppercase;
+        transition: transform 0.2s ease;
+        
+        &:hover {
+            transform: translateY(-2px);
+        }
 
         a {
             color: var(--clickable-text);
             text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 6px;
+            background-color: rgba(37, 99, 235, 0.1);
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            
+            &:hover {
+                background-color: rgba(37, 99, 235, 0.2);
+                border-color: rgba(37, 99, 235, 0.3);
+                text-decoration: none;
+            }
 
             span {
-                margin-left: 5px;
+                margin-left: 8px;
             }
 
             i {
-                font-size: 15px;
+                font-size: 16px;
             }
         }
     }
@@ -162,6 +176,26 @@ export default {
 @media (max-width: 764px) {
     .social-icon {
         justify-content: center;
+    }
+}
+</style>
+
+<style lang="scss">
+// Dark mode footer styles
+[data-theme="darkMode"] .footer {
+    background-color: var(--card-bg);
+    border-top: 1px solid #4a5568;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="darkMode"] .social-icon .social-icon-item a {
+    background-color: rgba(96, 165, 250, 0.15);
+    border: 1px solid rgba(96, 165, 250, 0.25);
+    color: #60a5fa;
+    
+    &:hover {
+        background-color: rgba(96, 165, 250, 0.25);
+        border-color: rgba(96, 165, 250, 0.4);
     }
 }
 </style>

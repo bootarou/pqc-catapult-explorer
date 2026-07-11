@@ -1,14 +1,14 @@
-// --- Symbol color palette ---
+// --- Business-friendly color palette ---
 
-$primary-color: #5200c6;
-$secondary-color: #44004e;
-$red-color: red;
-$pink-color: #f0f;
-$accent-color: #f0f;
-$blue-color: #00c8ff;
-$green-color: #287326;
-$orange-color: #F4A900;
-$violet-color: #9875ff;
+$primary-color: #2563eb;
+$secondary-color: #1e40af;
+$red-color: #ef4444;
+$pink-color: #ec4899;
+$accent-color: #3b82f6;
+$blue-color: #0ea5e9;
+$green-color: #22c55e;
+$orange-color: #f59e0b;
+$violet-color: #8b5cf6;
 $black-color: #000000;
 $white-color: #ffffff;
 $grey-color: #555;
@@ -22,28 +22,33 @@ $testnet-dark-mode-grid-bg: #303030;
 $light-mode-card-bg-color: #fcfcfc;
 
 $dark-white-color: #f3f4f8;
-$dark-mode-button-text-color: #26C3F2;
-$dark-mode-text-title-color: #b429fa;
-$dark-mode-text-color: #CCC;
-$dark-mode-green-text-color: #287326;
-$dark-mode-card-bg-color: #0B0118;
-$dark-mode-main-bg: #221c31;
-$dark-mode-grid-bg: #2b263a66;
-$dark-mode-card-border-color: #503d86;
+$dark-mode-button-text-color: #3b82f6;
+$dark-mode-text-title-color: #1d4ed8;
+$dark-mode-text-color: #e5e7eb;
+$dark-mode-green-text-color: #22c55e;
+$dark-mode-card-bg-color: #2d3748;
+$dark-mode-main-bg: #1a202c;
+$dark-mode-grid-bg: #2d374800;
+$dark-mode-card-border-color: #4b5563;
 
 // --- General colors ---
 
 $title-text-color: $dark-mode-text-title-color;
 $link-text-color: $dark-mode-button-text-color;
-$card-error-text-color: #98a8b4;
-$clickable-item: #fffc;
-$mosaic-filed: #462d91;
+$card-error-text-color: #9ca3af;
+$clickable-item: #f3f4f6;
+$mosaic-filed: #6366f1;
 
 // --- TableView colors
 
-$table-striped-color-first: transparent;
-$table-striped-color-second: transparent;
-$table-hover-color: #44004e1a;
+$table-striped-color-first: #f8fafc;
+$table-striped-color-second: #f1f5f9;
+$table-hover-color: #e2e8f0;
+
+// Dark mode table colors
+$dark-table-striped-color-first: #374151;
+$dark-table-striped-color-second: #4a5568;
+$dark-table-hover-color: #555e70;
 
 // --- Body width-limiter
 
