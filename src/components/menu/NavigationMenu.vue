@@ -6,7 +6,7 @@
 	>
 		<div class="width-limiter">
 			<router-link to="/" :class="{'hide': !fixed}">
-				<img src="../../styles/img/symbol_logo_200px.png" class="menu-logo" width="30px" height="30px"/>
+				<span class="menu-logo menu-brand">BNL PQC</span>
 			</router-link>
 			<router-link
 				v-for="item in items"
@@ -86,8 +86,16 @@ export default {
     }
 
     .menu-logo {
-        width: 30px;
         margin-right: 15px;
+    }
+
+    .menu-brand {
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        color: #fff;
+        white-space: nowrap;
+        align-self: center;
     }
 
     .ex-menu-item {

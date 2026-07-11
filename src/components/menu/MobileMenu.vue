@@ -10,7 +10,7 @@
 
 		<div class="mobile-panel navbar-hide-on-scroll">
 			<router-link to="/" class="title" :class="{'hide': isHide}">
-				<img src="../../styles/img/symbol_logo_200px.png" class="menu-logo"/>
+				<span class="menu-logo menu-brand">BNL PQC</span>
 			</router-link>
 		</div>
 
@@ -18,7 +18,7 @@
 			<div v-if="showDrawer" class="menu-drawer">
 				<div class="drawer-header blue-gradinet">
 					<router-link to="/" class="logo">
-						<img src="../../styles/img/symbol_logo_200px.png" alt="symbol logo" />
+						<span class="menu-brand">BNL PQC</span>
 					</router-link>
 					<span class="title">{{getNameByKey('blockchainExplorerTitle')}}</span>
 					<LanguageSelector />
@@ -215,8 +215,15 @@ export default {
             letter-spacing: 1px;
 
             .menu-logo {
-                width: 30px;
                 margin: 0 15px;
+            }
+
+            .menu-brand {
+                font-size: 14px;
+                font-weight: 700;
+                letter-spacing: 0.05em;
+                color: #fff;
+                white-space: nowrap;
             }
         }
 

@@ -4,8 +4,8 @@
 			<b-container fluid>
 				<b-row>
 					<b-col md="3" class="header-left">
-						<router-link to="/" class="d-none d-md-block">
-							<img src="../../styles/img/logo-wordmark-dark-BG.png" class="header-logo"/>
+						<router-link to="/" class="d-none d-md-block header-brand-link">
+							<span class="header-brand">BNL PQC</span>
 						</router-link>
 					</b-col>
 					<b-col md="6" class="header-center">
@@ -128,9 +128,16 @@ export default {
         align-items: center;
         min-height: 30px;
 
-        .header-logo {
-            width: 100%;
-            max-width: 193px;
+        .header-brand-link {
+            text-decoration: none;
+        }
+
+        .header-brand {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            color: var(--text-color, #1f2937);
+            white-space: nowrap;
         }
     }
 
