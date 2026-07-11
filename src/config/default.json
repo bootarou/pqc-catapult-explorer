@@ -12,27 +12,11 @@
 	"footer": {
 		"link": [
 			{
-				"href": "https://github.com/bootarou/explorer-smd",
+				"href": "https://github.com/bootarou/blockchain-network-launcher",
 				"text": "Github",
 				"icon": "IconGithub"
-			},
-			{
-				"href": "https://discord.gg/NMA9YQ55td",
-				"text": "Discord",
-				"icon": "IconDiscord"
-			},
-			{
-				"href": "https://x.com/nftdrive_jp",
-				"text": "Twitter",
-				"icon": "IconTwitter"
-			},
-			{
-				"href": "https://testnet.symbol.tools/",
-				"text": "Faucet",
-				"icon": "IconCurrencyUsd"
 			}
 		]
 	},
 	"timezone": "Local"
 }
-
